@@ -1,10 +1,10 @@
-import dotenv from "dotenv";
-dotenv.config();
+import dotenv from "dotenv/config";
+//dotenv.config();
 
 import express from "express";
 import cors from "cors";
 import { v4 as uuidv4 } from "uuid";
-import db from "./database.js";
+import connection from "./utils/database.js";
 
 const app = express();
 const PORT = process.env.PORT || 5050;

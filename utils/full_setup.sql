@@ -1,7 +1,7 @@
 - Drop old database if exists and create new one
-DROP DATABASE IF EXISTS industry_sprint;
-CREATE DATABASE industry_sprint;
-USE industry_sprint;
+DROP DATABASE IF EXISTS ccsprint;
+CREATE DATABASE ccsprint;
+USE ccsprint;
 
 -- Create tables
 CREATE TABLE `events` (
