@@ -1,4 +1,5 @@
 import dotenv from "dotenv/config";
+import mysql from 'mysql2/promise'
 //dotenv.config();
 
 import express from "express";
