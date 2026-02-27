@@ -1,4 +1,4 @@
-- Drop old database if exists and create new one
+-- Drop old database if exists and create new one
 DROP DATABASE IF EXISTS ccsprint;
 CREATE DATABASE ccsprint;
 USE ccsprint;
