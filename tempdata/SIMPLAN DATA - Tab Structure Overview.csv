@@ -1,0 +1,7 @@
+,,
+,,
+,Tab Name,What It Contains
+,Base Planning," Includes zoning proposal details, building height, unit counts, floor area, transit proximity, district info, and the synthetic approval score. This is the foundational dataset all derived scores are calculated from."
+,Urban Impact Score,"Modeled physical impact projections of the proposed development. Includes estimated population increase, projected traffic change (%), environmental load proxy, shadow/sunlight impact score, transit rider impact score, and estimated new daily transit riders. These values are derived from project intensity and location factors."
+,Financial Score,"Investment and lending risk indicators derived from project characteristics. Includes projected property value change (%), default risk index (0–100), capital concentration risk (0–100), construction loan feasibility score (0–100), and insurance premium shift index (0–100). Designed to simulate how financial institutions might screen the project."
+,Social Economic Scores,"Community-level impact indicators. Includes rent increase forecast (%), rent burden score (0–100), displacement risk score (0–100), and transit speed impact score (0–100). These metrics estimate housing pressure and accessibility effects driven by development intensity and proximity to transit."
