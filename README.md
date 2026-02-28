@@ -16,6 +16,7 @@ Each team member needs a local MySQL database. Follow these steps:
      - `DB_NAME` ? Database name (default: simplan)
      - `DB_USER` ? MySQL username
      - `DB_PASSWORD` ? MySQL password
+- `JWT_SECRET` ? secret for signing tokens (use a strong value in production)
 
 3. **Create your local database and schema**
    Run the database creation script:

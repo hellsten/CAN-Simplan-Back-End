@@ -20,8 +20,10 @@ POST /api/auth/login
 ```
 Body: `{ "email": "...", "password": "..." }`
 
-Success: `{ "success": true, "user": { "id", "email", "name" } }`  
+Success: `{ "success": true, "user": { "id", "email", "name" }, "token": "..." }`  
 Error: `{ "error": "Invalid email or password" }`
+
+Store the token. Send it on protected requests: `Authorization: Bearer <token>`
 
 ---
 
@@ -29,6 +31,7 @@ Error: `{ "error": "Invalid email or password" }`
 ```
 GET /api/proposals
 ```
+Requires: `Authorization: Bearer <token>`
 
 Query params:
 - `status` – all, needs_review, straightforward
@@ -68,6 +71,7 @@ Response:
 ```
 GET /api/proposals/:id
 ```
+Requires: `Authorization: Bearer <token>`
 Use encoded ID in URL, e.g. `SP%2022%2010` for "SP 22 10"
 
 Response:
@@ -86,6 +90,7 @@ topRiskDrivers and dataSourcesUsed are placeholders for now.
 ```
 GET /api/dashboard
 ```
+Requires: `Authorization: Bearer <token>`
 Returns:
 ```json
 {
@@ -122,7 +127,13 @@ Badge colours: Low = green, Moderate = orange, High = red. Status: Clear to Proc
 
 Set `VITE_API_BASE_URL=http://localhost:8080/api`
 
-- `fetchUpdate("proposals", setProposals)` – proposals list
+After login, store the token and add it to requests:
+```javascript
+axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+```
+Or pass headers per request.
+
+- `fetchUpdate("proposals", setProposals)` – proposals list (needs token)
 - `fetchUpdate("proposals/SP%2022%2010", setProposal)` – single proposal
 - `fetchUpdate("dashboard", setDashboard)` – metadata
 - `postUpdate("auth/login", { email, password })` – login

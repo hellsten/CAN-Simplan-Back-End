@@ -1,5 +1,6 @@
 import express from "express";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken"; // signs tokens so client can prove they logged in
 import db from "../db.js";
 
 const router = express.Router();
@@ -29,7 +30,15 @@ router.post("/auth/login", async (req, res) => {
       return res.status(401).json({ error: "Invalid email or password" });
     }
     const { password_hash, ...userWithoutPassword } = user;
-    res.json({ success: true, user: userWithoutPassword });
+
+    // creats a signed token with user id/email, expires in 7 days
+    const token = jwt.sign(
+      { id: user.id, email: user.email },
+      process.env.JWT_SECRET,
+      { expiresIn: "7d" }
+    );
+
+    res.json({ success: true, user: userWithoutPassword, token });
   } catch (err) {
     console.error("Login error:", err);
     res.status(500).json({ error: "Database error" });
