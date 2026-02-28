@@ -4,8 +4,9 @@
   "description": "��#\u0000 \u0000E\u0000v\u0000e\u0000n\u0000t\u0000u\u0000r\u0000e\u0000-\u0000S\u0000p\u0000r\u0000i\u0000n\u0000t\u0000-\u0000S\u0000e\u0000r\u0000v\u0000e\u0000r\u0000\r\u0000 \u0000",
   "main": "index.js",
   "scripts": {
-    "dev": "node --watch server.js",
-    "start": "node server.js"
+    "dev": "node --watch index.js",
+    "start": "node index.js",
+    "create-db": "node scripts/create-db.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/hellsten/Eventure-Sprint-Server#readme",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "body-parser": "^2.2.2",
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
